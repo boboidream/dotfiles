@@ -1,0 +1,54 @@
+# github                                                                      
+Host github.com
+HostName github.com
+User git
+IdentityFile ~/.ssh/id_rsa_github
+
+Host ssh.github.com
+Hostname ssh.github.com
+PreferredAuthentications publickey
+IdentityFile ~/.ssh/id_rsa_github
+Port 443
+
+
+# bitbucket
+Host bitbucket.org
+HostName bitbucket.org
+User git
+IdentityFile ~/.ssh/id_rsa_bitbucket 
+
+# Coding
+Host git.coding.net
+HostName git-ssh.coding.net
+Port 443
+User git
+IdentityFile ~/.ssh/id_rsa_coding
+
+# GCE
+Host gce
+HostName 104.199.153.91
+User z644381492
+IdentityFile ~/.ssh/id_rsa_gce
+
+# ss2018
+Host ss2018
+HostName 104.199.153.91
+User git
+IdentityFile ~/.ssh/ss2018_git
+
+# caiyidong_tencent_cloud
+Host caiyidong.com
+HostName 106.54.64.171
+User root
+IdentityFile ~/.ssh/caiyidong_tencent
+
+# ASUS
+Host 192.168.50.1
+HostName 192.168.50.1
+IdentityFile ~/.ssh/id_rsa_asus
+
+# xdm aliyun
+Host xdm3d.com
+HostName 101.37.159.136
+User root
+IdentityFile ~/.ssh/wenbo.pem

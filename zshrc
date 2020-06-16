@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/bobo/.oh-my-zsh
+export ZSH=/Users/zhangwenbo/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -52,7 +52,7 @@ export ZSH=/Users/bobo/.oh-my-zsh
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git wd)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -89,6 +89,51 @@ source $ZSH/oh-my-zsh.sh
 # This loads nvm
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" 
+export NVM_NODEJS_ORG_MIRROR=http://npm.taobao.org/mirrors/node
 
-# This loads yarn
-export PATH="$PATH:`yarn global bin`"
+# This loads autojump
+plugins=(autojump)
+[[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
+
+# freedom routes
+alias routes-up='sudo ~/Dropbox/Apps/freedom-routes/routes-up.sh'
+alias routes-down='sudo ~/Dropbox/Apps/freedom-routes/routes-down.sh'
+
+export GOPATH=/Users/zhangwenbo/Work/Code/go
+
+export PATH=$HOME/cmus/bin:$PATH
+
+export PATH=/Users/zhangwenbo/Github/dotfiles:$PATH
+
+# for xelatex
+export PATH=/Library/TeX/texbin:$PATH
+
+# for adb
+export PATH=$PATH:~/.android-sdk-macosx/platform-tools/
+
+# pyenv
+export LANG="en_US.UTF-8"
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
+# nvm
+export NVM_NODEJS_ORG_MIRROR=https://npm.taobao.org/mirrors/node
+
+# java
+export JAVA_HOME=`/usr/libexec/java_home -v 12`
+export PATH=$JAVA_HOME/bin:$PATH
+
+# alias
+alias heiyu='adb -d shell sh /data/data/me.piebridge.brevent/brevent.sh';
+
+function proxy() {
+  git config --global http.proxy 'socks5://127.0.0.1:10086'
+  git config --global https.proxy 'socks5://127.0.0.1:10086'
+  export all_proxy=socks5://127.0.0.1:10086
+}
+function unproxy() {
+  unset all_proxy
+  git config --global --unset http.proxy
+  git config --global --unset https.proxy
+}
